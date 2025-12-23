@@ -956,13 +956,41 @@ body::after {
   .services-grid,
   .pricing-grid,
   .status-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .services-grid::-webkit-scrollbar,
+  .pricing-grid::-webkit-scrollbar,
+  .status-grid::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .services-grid::-webkit-scrollbar-track,
+  .pricing-grid::-webkit-scrollbar-track,
+  .status-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .services-grid::-webkit-scrollbar-thumb,
+  .pricing-grid::-webkit-scrollbar-thumb,
+  .status-grid::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 10px;
   }
 
   .service-card,
   .pricing-card,
   .status-card {
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
     padding: 36px 28px;
   }
 
@@ -994,8 +1022,31 @@ body::after {
   }
 
   .included-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 16px;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .included-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .included-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .included-grid::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 10px;
+  }
+
+  .included-item {
+    flex: 0 0 70%;
+    scroll-snap-align: center;
   }
 
   .status-metrics {
