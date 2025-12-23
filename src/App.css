@@ -841,13 +841,22 @@ body::after {
 /* Tablet portrait */
 @media (max-width: 768px) {
 
-  /* Disable heavy animations on mobile for performance */
-  .hero::after,
-  .App::before,
-  body::after,
+  /* Make animations more subtle on mobile for performance */
+  .hero::after {
+    opacity: 0.2;
+  }
+
+  .App::before {
+    opacity: 0.4;
+  }
+
+  body::before {
+    opacity: 0.4;
+    background-size: 120px 120px;
+  }
+
   .hero::before {
-    animation: none;
-    opacity: 0.3;
+    opacity: 0.6;
   }
 
   .container {
